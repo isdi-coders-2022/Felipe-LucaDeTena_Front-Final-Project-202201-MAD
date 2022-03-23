@@ -1,0 +1,117 @@
+.header {
+    &__container {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        border-radius: 0 0 0 15vh;
+        height: 50vw;
+    }
+    &__profile {
+        display: flex;
+        align-items: center;
+        border-radius: 0 0 0 20vh;
+        &__banner {
+            width: 97vw;
+            height: 40vw;
+            border-radius: 0 0 0 20vh;
+        }
+        &__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.circle {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 20vw;
+    height: 20vw;
+    &-2 {
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 7vw;
+        height: 7vw;
+    }
+}
+.image__container {
+    padding-left: 6vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__button {
+        background-color: white;
+        color: black;
+        border: none;
+        font-size: 1vw;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 10vh;
+        padding: 0.5vw 1vw;
+        margin: 2vw;
+    }
+}
+.follower {
+    &__container {
+        display: flex;
+        flex-direction: column;
+
+        &-2 {
+            background-color: white;
+            display: flex;
+            flex-direction: row;
+            border-radius: 4vh 0 0 4vh;
+            width: 60vw;
+            justify-content: space-evenly;
+        }
+    }
+    &__name {
+        color: white;
+        font-size: 4vw;
+        margin: 0 0 0 2vw;
+    }
+    &__text {
+        font-size: 1vw;
+    }
+    &__number {
+        font-size: 1vw;
+        margin-bottom: 0;
+    }
+    &__data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.data__container {
+    margin-top: 10vw;
+    display: flex;
+    width: 97vw;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+}
+.favourites {
+    justify-self: flex-start;
+    margin: 2vw 0 0 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1vw auto 2vw 10vw;
+    &__add {
+        font-size: 4vw;
+        color: #00000056;
+    }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

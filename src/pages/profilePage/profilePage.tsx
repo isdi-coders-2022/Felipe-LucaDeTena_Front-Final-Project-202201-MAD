@@ -1,7 +1,12 @@
 import React from 'react';
-import NavBar from '../../components/nav-bar/nav-bar';
+import Header from '../../components/main/profile/header';
+import './profile.scss';
 
 function Profile() {
-    return <NavBar />;
+    return (
+        <div className="profile__outer">
+            <Header />
+        </div>
+    );
 }
 export default Profile;

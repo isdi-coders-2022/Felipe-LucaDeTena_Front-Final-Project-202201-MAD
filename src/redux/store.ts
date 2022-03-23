@@ -1,4 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import itemsReducer from './item/item-reducer';
 import loginRegisterReducer from './login-register/login-register-reducer';
 
 // const preloadedState = {};
@@ -6,6 +7,7 @@ import loginRegisterReducer from './login-register/login-register-reducer';
 export const store = configureStore({
     reducer: {
         loginRegister: loginRegisterReducer,
+        items: itemsReducer,
     },
     // preloadedState,
 });

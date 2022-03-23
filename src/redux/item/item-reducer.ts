@@ -2,17 +2,22 @@
 /* eslint-disable no-param-reassign */
 import { AnyAction } from '@reduxjs/toolkit';
 import actionTypes from './action-types';
+import { ItemI } from '../../interfaces/item-i';
 
-function itemsReducer(state = [], action: AnyAction) {
-    let newState;
+interface ItemsI {
+    items: ItemI[];
+}
+const initialState = {
+    items: [],
+};
 
+function itemsReducer(state: ItemsI = initialState, action: AnyAction) {
     switch (action.type) {
         case actionTypes.loadItems:
-            return [...action.payload];
+            return { ...state, items: [...action.payload] };
         default:
-            newState = state;
+            return state;
     }
-    return newState;
 }
 
 export default itemsReducer;

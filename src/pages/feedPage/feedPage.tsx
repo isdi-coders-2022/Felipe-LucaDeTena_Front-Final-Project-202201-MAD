@@ -4,7 +4,7 @@ import './feedPage.scss';
 
 function Feed() {
     return (
-        <div className="container">
+        <div className="feed__container">
             <NavBar />
         </div>
     );
