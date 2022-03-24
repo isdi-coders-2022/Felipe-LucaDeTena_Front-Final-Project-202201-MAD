@@ -7,8 +7,8 @@ function NavBar() {
         <nav className="nav">
             <svg
                 className="nav__logo"
-                width="50"
-                height="65"
+                width="3.5vw"
+                height="4vw"
                 viewBox="0 0 120 148"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

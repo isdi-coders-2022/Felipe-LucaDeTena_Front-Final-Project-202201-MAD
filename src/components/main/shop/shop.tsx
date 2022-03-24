@@ -7,6 +7,7 @@ import { getItems } from '../../../services/api/item-api';
 import loadItems from '../../../redux/item/action-creators';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
+import './shop.scss';
 
 function ShopComponent() {
     const dispatch = useDispatch();

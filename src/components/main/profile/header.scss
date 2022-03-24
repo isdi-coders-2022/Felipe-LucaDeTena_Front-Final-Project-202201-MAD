@@ -1,22 +1,23 @@
 .header {
     &__container {
-        width: 100%;
+        margin-left: auto;
         height: 100%;
         background-color: white;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        border-radius: 0 0 0 15vh;
-        height: 50vw;
+        border-radius: 0 0 0 15vw;
+        height: 45vw;
+        margin-bottom: 5vh;
     }
     &__profile {
         display: flex;
         align-items: center;
-        border-radius: 0 0 0 20vh;
+        border-radius: 0 0 0 15vw;
         &__banner {
             width: 97vw;
-            height: 40vw;
-            border-radius: 0 0 0 20vh;
+            height: 35vw;
+            border-radius: 0 0 0 15vw;
         }
         &__img {
             width: 100%;
