@@ -1,0 +1,30 @@
+.form {
+    background-color: #abacab;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    height: 30vw;
+    justify-content: space-evenly;
+    border-radius: 5vw;
+    &__button {
+        color: #abacab;
+        font-size: 1vw;
+        border-radius: 1vh;
+        padding: 5px;
+        background-color: white;
+        border: 1px solid #abacab;
+    }
+    &__button:hover {
+        background-color: #abacab;
+        color: white;
+        border: 1px solid white;
+    }
+    &__input {
+        background-color: white;
+        border-radius: 2vh;
+        &__color {
+            width: 15vw;
+        }
+    }
+}

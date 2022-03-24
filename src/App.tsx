@@ -1,18 +1,18 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import Form from './components/main/profile/form';
+// import './App.css';
 import Create from './pages/createPage/createPage';
 import Feed from './pages/feedPage/feedPage';
 import Profile from './pages/profilePage/profilePage';
 import Register from './pages/registerPage/registerPage';
 import Shop from './pages/shopPage/shopPage';
-// import NavBar from './components/nav-bar/nav-bar';
-// import Register from './components/register/register';
-// import LogIn from './components/login/login';
+import LogIn from './components/login/login';
 
 function App() {
     return (
         <div className="App">
+            <Form />
             <Routes>
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile />} />
@@ -20,9 +20,7 @@ function App() {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/feed" element={<Feed />} />
             </Routes>
-            {/* <LogIn /> */}
-            {/* <Register /> */}
-            {/* <NavBar /> */}
+            <LogIn />
         </div>
     );
 }

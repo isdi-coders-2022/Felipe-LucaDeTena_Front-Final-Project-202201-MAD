@@ -76,7 +76,7 @@ function LogIn() {
                                 type="submit"
                                 className="container__form__button"
                             >
-                                Sign Up
+                                Login
                             </button>
                             <span className="text">or</span>
                             <button

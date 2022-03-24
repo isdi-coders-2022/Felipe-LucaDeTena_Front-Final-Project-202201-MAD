@@ -19,8 +19,8 @@
 
         &-p {
             background-color: transparent;
-            color: #00000053;
-            border: 2px solid #00000053;
+            color: #abacab;
+            border: 2px solid #abacab;
             font-size: 1.5vw;
             font-weight: bold;
             text-decoration: none;
@@ -28,15 +28,15 @@
             padding: 1vw 1.3vw;
         }
         &-p:hover {
-            background-color: #00000053;
+            background-color: #abacab;
             color: white;
             border: 2px solid transparent;
         }
     }
     &__links:hover {
-        background-color: #00000053;
+        background-color: #abacab;
         color: white;
-        padding: 4.2vh 2vh 2vh 2vh;
+        padding: 2.3vw 1vw 1vw 1vw;
         align-self: flex-start;
         border-radius: 0 0 20% 20%;
     }
