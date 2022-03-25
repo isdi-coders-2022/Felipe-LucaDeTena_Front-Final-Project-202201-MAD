@@ -1,8 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { getItems } from '../../../services/api/item-api';
 import loadItems from '../../../redux/item/action-creators';
 import { useAppSelector } from '../../../redux/hooks';

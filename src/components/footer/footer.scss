@@ -1,11 +1,17 @@
 .footer {
-    margin-top: 5vw;
+    width: 100%;
     background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     border-radius: 8vw 0 8vw 0;
     height: 18vw;
+    &__outer {
+        background-color: #abacab;
+        height: 25vw;
+        display: flex;
+        align-items: center;
+    }
     &__container {
         display: flex;
         flex-direction: column;
@@ -24,7 +30,7 @@
     display: flex;
 }
 .br {
-    height: 2vw;
+    height: 1vw;
 }
 .icons {
     display: flex;

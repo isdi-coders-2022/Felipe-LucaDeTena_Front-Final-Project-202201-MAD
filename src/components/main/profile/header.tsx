@@ -7,7 +7,7 @@ import './header.scss';
 import { loadUser } from '../../../redux/user/action-creators-';
 import { getUser } from '../../../services/api/user-api';
 
-function Header() {
+function Header({ setButtonPopUp }: any) {
     const dispatch = useAppDispatch();
     const userState = useAppSelector((state: RootState) => state.loginRegister);
 
@@ -31,13 +31,14 @@ function Header() {
                         <div className="circle">
                             <img
                                 className="header__profile__img"
-                                src="https://firebasestorage.googleapis.com/v0/b/wishy-c9ec8.appspot.com/o/825f9701-f8a1-437a-bb42-4c53652e39d5?alt=media&token=c7605b08-6f2b-4c08-8719-6b5750a3b355"
+                                src={userState.profileImg}
                                 alt="./profileholder"
                             />
                         </div>
                         <button
-                            className="image__container__button"
+                            onClick={() => setButtonPopUp(true)}
                             type="button"
+                            className="image__container__button"
                         >
                             {' '}
                             Edit profile

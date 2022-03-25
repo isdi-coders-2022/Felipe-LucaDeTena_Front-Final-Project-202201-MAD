@@ -8,7 +8,7 @@ import { RootState } from '../../../redux/store';
 import { updateUser } from '../../../redux/user/action-creators-';
 import './form.scss';
 
-function Form() {
+function Form({ setButtonPopUp }: any) {
     const [image, setImage] = useState<any>(undefined);
     // const [color, setcolor] = useState<any>(null);
 
@@ -25,7 +25,7 @@ function Form() {
 
     const handleSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
-        const imageRef = ref(storage, uuid());
+        const imageRef = ref(storage, uuid() + image.name);
         uploadBytes(imageRef, image)
             .then(() => {
                 getDownloadURL(imageRef)
@@ -48,6 +48,17 @@ function Form() {
 
     return (
         <div className="form">
+            <div className="form__title__container">
+                <h1 className="form__title">Edit Profile</h1>
+                <button
+                    className="form__button__close"
+                    type="button"
+                    onClick={() => setButtonPopUp(false)}
+                >
+                    x
+                </button>
+            </div>
+
             <div className="form__input">
                 <label className="form__label" htmlFor="profileImg">
                     {' '}

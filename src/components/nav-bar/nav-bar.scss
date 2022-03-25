@@ -27,6 +27,20 @@
             border-radius: 50%;
             padding: 1vw 1.3vw;
         }
+        &-b {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5vw;
+            background-color: transparent;
+            border: none;
+        }
+        &-b:hover {
+            background-color: #abacab;
+            color: white;
+            padding: 2.3vw 1vw 1vw 1vw;
+            align-self: flex-start;
+            border-radius: 0 0 20% 20%;
+        }
         &-p:hover {
             background-color: #abacab;
             color: white;

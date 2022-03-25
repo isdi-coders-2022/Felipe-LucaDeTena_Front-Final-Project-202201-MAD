@@ -3,7 +3,7 @@ import './footer.scss';
 
 function Footer() {
     return (
-        <>
+        <div className="footer__outer">
             <div className="footer">
                 <div className="footer__container">
                     <div className="logo">
@@ -40,7 +40,7 @@ function Footer() {
                 </div>
             </div>
             <div className="br" />
-        </>
+        </div>
     );
 }
 export default Footer;

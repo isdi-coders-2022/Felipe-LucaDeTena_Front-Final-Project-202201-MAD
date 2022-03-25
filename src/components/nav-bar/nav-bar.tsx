@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../redux/hooks';
+import { RootState } from '../../redux/store';
 import './nav-bar.scss';
 
-function NavBar() {
+function NavBar({ togglePopup }: any) {
+    const userState = useAppSelector((state: RootState) => state.loginRegister);
+
     return (
         <nav className="nav">
             <svg
@@ -27,9 +31,20 @@ function NavBar() {
             <Link to="/shop" className="nav__links">
                 <span>Shop</span>
             </Link>
-            <Link to="/profile" className="nav__links-p">
-                <span>p</span>
-            </Link>
+            {userState.isLogged ? (
+                <Link to="/profile" className="nav__links-p">
+                    <span>p</span>
+                </Link>
+            ) : (
+                <button
+                    onClick={togglePopup}
+                    className="nav__links-b"
+                    type="button"
+                >
+                    {' '}
+                    Login{' '}
+                </button>
+            )}
         </nav>
     );
 }
