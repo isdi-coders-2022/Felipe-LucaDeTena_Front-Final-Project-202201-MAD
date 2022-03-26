@@ -6,15 +6,69 @@
 }
 .stage {
     background-color: white;
-    position: static;
+    height: 40vw;
+    width: 40vw;
+    margin: 0 0 0 0;
+    border: 1px solid #abacab;
+    &__container {
+        background-color: white;
+        width: 70vw;
+        height: 55vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    &__title {
+        margin: 3vw 8vw 3.1vw 0;
+        color: #abacab;
+        font-size: 2vw;
+    }
 }
 
 .stickers {
-    display: flex;
-    flex-direction: column;
-    margin: 0 5vw 0 10vw;
     background-color: white;
     height: 40vw;
     width: 30vw;
     overflow: scroll;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #abacab;
+
+    &__button {
+        background-color: white;
+        border: 1px solid #abacab;
+        border-radius: 4vw;
+        height: 12vw;
+        width: 11vw;
+    }
+}
+.sticker {
+    &__container {
+        background-color: white;
+        width: 30vw;
+        margin: 0 3vw 0 3vw;
+        height: 55vw;
+        border-radius: 0 3vw 3vw 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__buttons {
+            width: 20vw;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1vw;
+            font-size: 2px;
+        }
+    }
+    &__search {
+        width: 20vw;
+        margin: 1vw 0 1vw 0;
+        border-radius: 1vw;
+        border: #abacab solid;
+        font-size: 2vw;
+        text-align: center;
+        padding: 0.5vw;
+    }
 }

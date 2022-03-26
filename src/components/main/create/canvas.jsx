@@ -53,32 +53,35 @@ function Canvas() {
 
     return (
         <div className="canvas">
-            <Stage
-                width={400}
-                height={600}
-                onClick={handleCanvasClick}
-                onTap={handleCanvasClick}
-                className="stage"
-            >
-                <Layer>
-                    {images.map((image, i) => (
-                        <IndividualSticker
-                            onDelete={() => {
-                                const newImages = [...images];
-                                newImages.splice(i, 1);
-                                setImages(newImages);
-                            }}
-                            onDragEnd={(event) => {
-                                image.x = event.target.x();
-                                image.y = event.target.y();
-                            }}
-                            key={i}
-                            image={image}
-                        />
-                    ))}
-                </Layer>
-            </Stage>
-            <div className="stickers">
+            <div className="stage__container">
+                <h1 className="stage__title">Drag image to canvas</h1>
+                <Stage
+                    width={400}
+                    height={600}
+                    onClick={handleCanvasClick}
+                    onTap={handleCanvasClick}
+                    className="stage"
+                >
+                    <Layer>
+                        {images.map((image, i) => (
+                            <IndividualSticker
+                                onDelete={() => {
+                                    const newImages = [...images];
+                                    newImages.splice(i, 1);
+                                    setImages(newImages);
+                                }}
+                                onDragEnd={(event) => {
+                                    image.x = event.target.x();
+                                    image.y = event.target.y();
+                                }}
+                                key={i}
+                                image={image}
+                            />
+                        ))}
+                    </Layer>
+                </Stage>
+            </div>
+            <div className="sticker__container">
                 <input
                     className="sticker__search"
                     type="text"
@@ -93,22 +96,24 @@ function Canvas() {
                     </button>
                 </div>
 
-                {itemState.items.map((item) => (
-                    <button
-                        type="button"
-                        className="button"
-                        onMouseDown={() => {
-                            addStickerToPanel({
-                                src: item.img,
-                                width: '20px',
-                                x: 100,
-                                y: 100,
-                            });
-                        }}
-                    >
-                        <img alt="none" src={item.img} width="100px" />
-                    </button>
-                ))}
+                <div className="stickers">
+                    {itemState.items.map((item) => (
+                        <button
+                            type="button"
+                            className="stickers__button"
+                            onMouseDown={() => {
+                                addStickerToPanel({
+                                    src: item.img,
+                                    width: '20px',
+                                    x: 100,
+                                    y: 100,
+                                });
+                            }}
+                        >
+                            <img alt="none" src={item.img} width="100px" />
+                        </button>
+                    ))}
+                </div>
             </div>
         </div>
     );

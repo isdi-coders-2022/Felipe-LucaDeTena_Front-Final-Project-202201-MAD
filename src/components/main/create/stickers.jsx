@@ -11,7 +11,7 @@ import { useHoverDirty, useLongPress } from 'react-use';
 export const IndividualSticker = ({ image, onDelete, onDragEnd }) => {
     const imageRef = useRef(null);
     const isHovered = useHoverDirty(imageRef);
-    const [stickerImage] = useImage(image.img);
+    const [stickerImage] = useImage(image.src);
     const [deleteImage] = useImage('cancel.svg');
     const [showDeleteButton, setShowDeleteButton] = useState(false);
     const onLongPress = () => {
