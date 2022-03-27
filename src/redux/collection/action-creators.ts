@@ -2,7 +2,7 @@ import * as api from '../../services/api/collection-api';
 import actionTypes from './action-types';
 import { AppDispatch } from '../store';
 
-function loadCollections() {
+export function loadCollections() {
     return (dispatch: AppDispatch) => {
         api.getCollections().then((resp: any) => {
             dispatch({
@@ -12,51 +12,43 @@ function loadCollections() {
         });
     };
 }
-function loadCollection(collection: any) {
+export function loadCollection(collection: any) {
     return (dispatch: AppDispatch) => {
         api.getCollection(collection).then((resp: any) => {
             dispatch({
-                type: actionTypes.loadCollections,
+                type: actionTypes.loadCollection,
                 payload: resp.data,
             });
         });
     };
 }
-function addCollection(collection: any, token: string) {
+export function addCollection(collection: any, token: string) {
     return (dispatch: AppDispatch) => {
         api.addCollection(collection, token).then((resp: any) => {
             dispatch({
-                type: actionTypes.loadCollections,
+                type: actionTypes.addCollections,
                 payload: resp.data,
             });
         });
     };
 }
-function removeCollection(collection: any, token: string) {
+export function removeCollection(collection: any, token: string) {
     return (dispatch: AppDispatch) => {
         api.deleteCollection(collection, token).then((resp: any) => {
             dispatch({
-                type: actionTypes.loadCollections,
+                type: actionTypes.deleteCollections,
                 payload: resp.data,
             });
         });
     };
 }
-function updateCollection(parcialCollection: any, token: any) {
+export function updateCollection(parcialCollection: any, token: any) {
     return (dispatch: AppDispatch) => {
         api.updateCollection(parcialCollection, token).then((resp: any) => {
             dispatch({
-                type: actionTypes.loadCollections,
+                type: actionTypes.updateCollections,
                 payload: resp.data,
             });
         });
     };
 }
-
-export default {
-    loadCollections,
-    loadCollection,
-    updateCollection,
-    addCollection,
-    removeCollection,
-};

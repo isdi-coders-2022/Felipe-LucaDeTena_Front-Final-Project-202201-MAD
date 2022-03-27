@@ -9,6 +9,7 @@ import Shop from './pages/shopPage/shopPage';
 import LogIn from './components/login/login';
 import Popup from './components/popUp/popUp';
 import Footer from './components/footer/footer';
+import DetailPage from './pages/detailPage/detailPage';
 
 function App() {
     const [loginPopUp, setLoginPopUp] = useState(false);
@@ -21,6 +22,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/register" element={<Register />} />
+                <Route path="/details" element={<DetailPage />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/create" element={<Create />} />
                 <Route

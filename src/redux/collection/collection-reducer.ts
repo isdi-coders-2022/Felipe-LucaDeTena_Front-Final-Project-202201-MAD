@@ -2,10 +2,10 @@
 /* eslint-disable no-param-reassign */
 import { AnyAction } from '@reduxjs/toolkit';
 import actionTypes from './action-types';
-import { ItemI } from '../../interfaces/item-i';
+import { CollectionI } from '../../interfaces/collection-i';
 
 interface CollectionsI {
-    collections: ItemI[];
+    collections: CollectionI[];
 }
 const initialState = {
     collections: [],
@@ -15,6 +15,7 @@ function collectionsReducer(
     state: CollectionsI = initialState,
     action: AnyAction
 ) {
+    console.log(action);
     switch (action.type) {
         case actionTypes.loadCollections:
             return { ...state, collections: [...action.payload] };

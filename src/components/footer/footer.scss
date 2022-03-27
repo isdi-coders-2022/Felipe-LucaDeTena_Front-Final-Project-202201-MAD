@@ -1,14 +1,14 @@
 .footer {
-    width: 100%;
+    width: 98vw;
     background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-radius: 8vw 0 8vw 0;
-    height: 18vw;
+    border-radius: 8vw 0 0 0;
+    height: 15vw;
+    margin-left: auto;
     &__outer {
         background-color: #abacab;
-        height: 25vw;
         display: flex;
         align-items: center;
     }
@@ -20,6 +20,20 @@
     &__adress {
         font-size: 1vw;
         color: #abacab;
+    }
+    &__icon {
+        background-color: white;
+        color: #abacab;
+
+        padding: 1vw;
+        border-radius: 20vw;
+        width: 4vw;
+        height: 4vw;
+    }
+    &__icon:hover {
+        background-color: #abacab;
+        color: white;
+        cursor: pointer;
     }
 }
 .title {

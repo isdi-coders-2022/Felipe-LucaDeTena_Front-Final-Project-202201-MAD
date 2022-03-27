@@ -8,8 +8,8 @@ import loginRegisterReducer from './login-register/login-register-reducer';
 export const store = configureStore({
     reducer: {
         loginRegister: loginRegisterReducer,
-        items: itemsReducer,
         collections: collectionsReducer,
+        items: itemsReducer,
     },
     // preloadedState,
 });
