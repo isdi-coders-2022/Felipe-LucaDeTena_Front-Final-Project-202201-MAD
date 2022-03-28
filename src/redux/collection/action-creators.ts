@@ -12,9 +12,9 @@ export function loadCollections() {
         });
     };
 }
-export function loadCollection(collection: any) {
+export function loadCollection(collectionState: any) {
     return (dispatch: AppDispatch) => {
-        api.getCollection(collection).then((resp: any) => {
+        api.getCollection(collectionState).then((resp: any) => {
             dispatch({
                 type: actionTypes.loadCollection,
                 payload: resp.data,
@@ -32,9 +32,9 @@ export function addCollection(collection: any, token: string) {
         });
     };
 }
-export function removeCollection(collection: any, token: string) {
+export function removeCollection(collection: any, userState: any) {
     return (dispatch: AppDispatch) => {
-        api.deleteCollection(collection, token).then((resp: any) => {
+        api.deleteCollection(collection, userState.token).then((resp: any) => {
             dispatch({
                 type: actionTypes.deleteCollections,
                 payload: resp.data,

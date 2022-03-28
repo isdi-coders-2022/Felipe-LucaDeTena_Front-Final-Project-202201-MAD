@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import NavBar from '../../nav-bar/nav-bar';
 // import { Link } from 'react-router-dom';
+
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './header.scss';
@@ -23,7 +26,7 @@ function Header({ setButtonPopUp }: any) {
             <div className="header__profile">
                 <img
                     className="header__profile__banner"
-                    src="./placeholder.jpg"
+                    src={userState.backImg}
                     alt="none"
                 />
                 <div className="data__container">
@@ -70,14 +73,18 @@ function Header({ setButtonPopUp }: any) {
                 </div>
             </div>
             <div className="favourites">
-                <span className="favourites__add">+</span>
-                <div className="circle-2">
-                    <img
-                        className="favourites__img"
-                        src="./register-pic.png"
-                        alt="none"
-                    />
-                </div>
+                <FontAwesomeIcon className="header__icon" icon={faHeart} />
+                {userState.collections
+                    .filter((collection: any) => collection.favourite)
+                    .map((collection: any) => (
+                        <div className="circle-2">
+                            <img
+                                className="favourites__img"
+                                src={collection.img}
+                                alt="none"
+                            />
+                        </div>
+                    ))}
             </div>
             <div />
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import loadItems from '../../redux/item/action-creators';
 import { signUp } from '../../redux/login-register/action-creators';
@@ -23,10 +23,12 @@ function SignUp() {
         email: '',
         password: '',
     });
+    const navigate = useNavigate();
 
     const handleSubmit = async (ev: any) => {
         ev.preventDefault();
         dispatch(signUp(register));
+        navigate('/profile', { replace: true });
     };
 
     const handleChange = (ev: any, control: any) => {

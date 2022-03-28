@@ -1,7 +1,8 @@
 import { ItemI } from './item-i';
 
 export interface CollectionI {
-    id?: Number;
+    _id?: string;
+    img: string;
     name: String;
     createdBy: Object;
     totalPrice: Number;

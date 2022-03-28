@@ -22,14 +22,20 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/register" element={<Register />} />
-                <Route path="/details" element={<DetailPage />} />
+                <Route
+                    path="/details/:id"
+                    element={<DetailPage togglePopup={togglePopup} />}
+                />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/create" element={<Create />} />
                 <Route
                     path="/shop"
                     element={<Shop togglePopup={togglePopup} />}
                 />
-                <Route path="/feed" element={<Feed />} />
+                <Route
+                    path="/feed"
+                    element={<Feed togglePopup={togglePopup} />}
+                />
             </Routes>
 
             <Popup trigger={loginPopUp}>

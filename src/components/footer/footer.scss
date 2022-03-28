@@ -4,13 +4,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    border-radius: 8vw 0 0 0;
+    border-radius: 15vw 0 0 0;
     height: 15vw;
     margin-left: auto;
     &__outer {
         background-color: #abacab;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
+        height: 17vw;
     }
     &__container {
         display: flex;
@@ -24,7 +25,8 @@
     &__icon {
         background-color: white;
         color: #abacab;
-
+        border: 3px solid #abacab;
+        margin: 1vw;
         padding: 1vw;
         border-radius: 20vw;
         width: 4vw;
@@ -33,7 +35,7 @@
     &__icon:hover {
         background-color: #abacab;
         color: white;
-        cursor: pointer;
+        border: 3px solid #abacab;
     }
 }
 .title {

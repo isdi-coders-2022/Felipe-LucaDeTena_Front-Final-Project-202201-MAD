@@ -45,6 +45,28 @@ function Form({ setButtonPopUp }: any) {
                 console.log(error.message);
             });
     };
+    const handleSubmitBanner = (e: SyntheticEvent) => {
+        e.preventDefault();
+        const imageRef = ref(storage, uuid() + image.name);
+        uploadBytes(imageRef, image)
+            .then(() => {
+                getDownloadURL(imageRef)
+                    .then((newUrl) => {
+                        console.log(newUrl, userState);
+                        dispatch(updateUser({ backImg: newUrl }, userState));
+                    })
+                    .catch((error) => {
+                        console.log(
+                            error.message,
+                            'error getting the image url'
+                        );
+                    });
+                setImage(null);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
 
     return (
         <div className="form">
@@ -92,7 +114,7 @@ function Form({ setButtonPopUp }: any) {
                 <button
                     type="submit"
                     className="form__button"
-                    onClick={handleSubmit}
+                    onClick={handleSubmitBanner}
                 >
                     Upload
                 </button>

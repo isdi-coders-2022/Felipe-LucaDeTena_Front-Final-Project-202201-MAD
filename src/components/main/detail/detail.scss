@@ -47,6 +47,7 @@
             font-size: 3.5vw;
             font-weight: normal;
             margin-bottom: 3vw;
+            text-align: center;
         }
         &__p {
             margin: 0.4vw;
@@ -63,12 +64,23 @@
         }
         &__button {
             font-family: aldrich;
+            color: #abacab;
+            font-size: 1.6vw;
+            border-radius: 50vw;
+            margin: 1vw 0 1vw 0;
+            background-color: white;
+            border: 2px solid #abacab;
+            padding: 0.5vw 1vw;
+            cursor: pointer;
+        }
+        &__button:hover {
+            font-family: aldrich;
             color: white;
             font-size: 1.6vw;
             border-radius: 50vw;
             margin: 1vw 0 1vw 0;
             background-color: #abacab;
-            border: none;
+            border: 2px solid #abacab;
             padding: 0.5vw 1vw;
             cursor: pointer;
         }
@@ -86,19 +98,28 @@
             flex-direction: column;
             justify-content: flex-start;
             width: 100%;
+
+            &__items {
+                width: 95%;
+                display: flex;
+                flex-direction: row;
+                overflow: scroll;
+            }
             &__img {
-                height: 20vw;
-                width: 20vw;
                 border-radius: 5vw;
                 border: 1px solid #abacab;
                 margin: 0 2vw 4vw;
                 cursor: pointer;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20vw;
+                height: 20vw;
             }
         }
         &__img {
-            height: 20vw;
-            width: 20vw;
-            border-radius: 5vw;
+            width: 13vw;
         }
         &__p {
             font-size: 3vw;
@@ -106,4 +127,32 @@
             margin: 4vw 0 2vw 02vw;
         }
     }
+}
+.overlay__details {
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #abacab;
+    width: 100%;
+    height: 100%;
+    border-radius: 5vw;
+    opacity: 0;
+
+    &__p {
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+    }
+}
+.overlay__details:hover {
+    opacity: 1;
+}
+.detail__items__container__img {
+    width: 20vw;
+    height: 20vw;
 }

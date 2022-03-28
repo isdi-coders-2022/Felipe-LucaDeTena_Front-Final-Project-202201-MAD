@@ -5,7 +5,6 @@ import { AppDispatch } from '../store';
 export function loadUser(userState: any) {
     return (dispatch: AppDispatch) => {
         api.getUser(userState).then((resp: any) => {
-            console.log(userState);
             dispatch({
                 type: actionTypes.loadUser,
                 payload: resp.data,
@@ -16,7 +15,6 @@ export function loadUser(userState: any) {
 export function updateUser(parcialUser: any, token: any) {
     return (dispatch: AppDispatch) => {
         api.updateUser(parcialUser, token).then((resp: any) => {
-            console.log(resp);
             dispatch({
                 type: actionTypes.updateUser,
                 payload: resp.data,

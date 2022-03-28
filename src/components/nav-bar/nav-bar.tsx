@@ -25,16 +25,19 @@ function NavBar({ togglePopup }: any) {
             <Link to="/feed" className="nav__links">
                 <span>Feed</span>
             </Link>
-            <Link to="/create" className="nav__links">
-                <span>Create</span>
-            </Link>
+
             <Link to="/shop" className="nav__links">
                 <span>Shop</span>
             </Link>
             {userState.isLogged ? (
-                <Link to="/profile" className="nav__links-p">
-                    <span>p</span>
-                </Link>
+                <>
+                    <Link to="/create" className="nav__links">
+                        <span>Create</span>
+                    </Link>
+                    <Link to="/profile" className="nav__links-p">
+                        <span>p</span>
+                    </Link>
+                </>
             ) : (
                 <button
                     onClick={togglePopup}

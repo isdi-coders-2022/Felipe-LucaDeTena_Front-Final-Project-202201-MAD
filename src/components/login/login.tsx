@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../redux/hooks';
 import { logIn } from '../../redux/login-register/action-creators';
 import './login.scss';
@@ -10,10 +11,11 @@ function LogIn({ togglePopup }: any) {
     });
 
     const dispatch = useAppDispatch();
-
+    const navigate = useNavigate();
     const handleSubmit = async (ev: any) => {
         ev.preventDefault();
         dispatch(logIn(login));
+        navigate('/profile');
     };
 
     const handleChange = (ev: any, control: any) => {
@@ -79,19 +81,23 @@ function LogIn({ togglePopup }: any) {
                             required
                             onChange={(ev) => handleChange(ev, 'password')}
                         />
+
                         <button
                             type="submit"
                             className="container__form__button"
                         >
-                            Login
+                            LOGIN
                         </button>
+
                         <span className="text">or</span>
-                        <button
-                            type="button"
-                            className="container__form__button"
-                        >
-                            Register
-                        </button>
+                        <Link to="/register">
+                            <button
+                                type="button"
+                                className="container__form__button"
+                            >
+                                Register
+                            </button>
+                        </Link>
                     </div>
                 </form>
             </div>

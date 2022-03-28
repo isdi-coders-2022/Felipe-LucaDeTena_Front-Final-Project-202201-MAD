@@ -2,7 +2,6 @@
 /* eslint-disable no-param-reassign */
 import { AnyAction } from '@reduxjs/toolkit';
 import actionTypes from './action-types';
-import { CollectionI } from '../../interfaces/collection-i';
 
 interface UserRegisterI {
     id: String;
@@ -13,7 +12,7 @@ interface UserRegisterI {
     profileImg: any;
     backImg: any;
     interFaceColor: String;
-    collections: CollectionI[];
+    collections: any;
     followers: UserRegisterI[];
     following: UserRegisterI[];
     isLogged: boolean;
@@ -34,8 +33,6 @@ const initialState: UserRegisterI = {
 };
 
 function loginReducer(state: UserRegisterI = initialState, action: AnyAction) {
-    // eslint-disable-next-line no-console
-    console.log(action);
     switch (action.type) {
         case actionTypes.logIn:
             state = { ...action.payload, isLogged: true };

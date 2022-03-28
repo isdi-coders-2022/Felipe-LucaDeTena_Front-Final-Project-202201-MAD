@@ -1,4 +1,9 @@
 .header {
+    &__icon {
+        color: #ffacff;
+        font-size: 2vw;
+        margin-right: 2vw;
+    }
     &__container {
         margin-left: auto;
         height: 100%;
@@ -38,6 +43,8 @@
         overflow: hidden;
         width: 7vw;
         height: 7vw;
+        border: 2px solid #abacab;
+        margin: 0 1vw;
     }
 }
 .image__container {
@@ -73,6 +80,7 @@
     }
     &__name {
         color: white;
+
         font-size: 4vw;
         margin: 0 0 0 2vw;
     }
@@ -106,8 +114,8 @@
     align-items: center;
     margin: 1vw auto 2vw 10vw;
     &__add {
-        font-size: 4vw;
-        color: #00000056;
+        font-size: 1vw;
+        color: #abacab;
     }
 
     &__img {

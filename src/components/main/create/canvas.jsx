@@ -1,6 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-param-reassign */
-import React, { createRef, useState, useCallback, useEffect } from 'react';
+import React, {
+    createRef,
+    useState,
+    useCallback,
+    useEffect,
+    useRef,
+} from 'react';
 import { useDispatch } from 'react-redux';
 import { Layer, Stage } from 'react-konva';
 import { IndividualSticker } from './stickers';
@@ -51,33 +57,47 @@ function Canvas() {
         [resetAllButtons]
     );
 
+    const canvasRef = useRef(null);
+
+    const handleExport = () => {
+        canvasRef.current.toDataURL();
+    };
+
     return (
         <div className="canvas">
             <div className="stage__container">
                 <h1 className="stage__title">Drag image to canvas</h1>
+                <button type="button" onClick={handleExport}>
+                    Export
+                </button>
                 <Stage
-                    width={400}
+                    width={600}
                     height={600}
                     onClick={handleCanvasClick}
                     onTap={handleCanvasClick}
                     className="stage"
+                    ref={canvasRef}
                 >
                     <Layer>
-                        {images.map((image, i) => (
-                            <IndividualSticker
-                                onDelete={() => {
-                                    const newImages = [...images];
-                                    newImages.splice(i, 1);
-                                    setImages(newImages);
-                                }}
-                                onDragEnd={(event) => {
-                                    image.x = event.target.x();
-                                    image.y = event.target.y();
-                                }}
-                                key={i}
-                                image={image}
-                            />
-                        ))}
+                        {images.map((image, i) => {
+                            console.log(image);
+                            image.crossOrigin = 'Anonymous';
+                            return (
+                                <IndividualSticker
+                                    onDelete={() => {
+                                        const newImages = [...images];
+                                        newImages.splice(i, 1);
+                                        setImages(newImages);
+                                    }}
+                                    onDragEnd={(event) => {
+                                        image.x = event.target.x();
+                                        image.y = event.target.y();
+                                    }}
+                                    key={i}
+                                    image={image}
+                                />
+                            );
+                        })}
                     </Layer>
                 </Stage>
             </div>
@@ -104,7 +124,7 @@ function Canvas() {
                             onMouseDown={() => {
                                 addStickerToPanel({
                                     src: item.img,
-                                    width: '20px',
+                                    width: 200,
                                     x: 100,
                                     y: 100,
                                 });
