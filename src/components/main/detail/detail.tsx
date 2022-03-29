@@ -9,7 +9,7 @@ import { getCollection } from '../../../services/api/collection-api';
 import { ItemI } from '../../../interfaces/item-i';
 import { RootState } from '../../../redux/store';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { followUser, unFollowUser } from '../../../redux/user/action-creators-';
+import { followUser, unFollowUser } from '../../../redux/user/action-creators';
 import { toggleCollection } from '../../../redux/collection/action-creators';
 
 function Detail() {
@@ -64,7 +64,7 @@ function Detail() {
                         {collection.createdBy.name}
                     </p>
 
-                    {userState.following.find(
+                    {userState.following.some(
                         (follower: any) =>
                             follower._id !== collection.createdBy._id
                     ) ? (

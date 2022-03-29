@@ -35,6 +35,7 @@ function collectionsReducer(
             return { ...state, ...action.payload };
         case actionTypes.loadCollection:
             return action.payload;
+
         default:
             return state;
     }

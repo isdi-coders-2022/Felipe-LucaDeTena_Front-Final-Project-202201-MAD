@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './header.scss';
-import { loadUser } from '../../../redux/user/action-creators-';
+import { loadUser } from '../../../redux/user/action-creators';
 // import { getUser } from '../../../services/api/user-api';
 import './main.scss';
 // import { deleteCollection } from '../../../services/api/collection-api';

@@ -25,6 +25,7 @@ export function updateUser(parcialUser: any, token: any) {
 export function followUser(user: any, id: string) {
     return (dispatch: AppDispatch) => {
         api.follow(user, id).then((resp: any) => {
+            console.log(resp.data);
             dispatch({
                 type: actionTypes.follow,
                 payload: resp.data,

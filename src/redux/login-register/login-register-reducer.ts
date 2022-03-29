@@ -56,14 +56,12 @@ function loginReducer(state: UserRegisterI = initialState, action: AnyAction) {
         case actionTypesUser.unFollow:
             return {
                 ...state,
-                followers: state.followers.filter(
-                    (e: any) => e._id !== action.payload._id
-                ),
+                ...action.payload,
             };
         case actionTypesUser.follow:
             return {
                 ...state,
-                followers: [...state.followers, action.payload],
+                ...action.payload,
             };
 
         default:

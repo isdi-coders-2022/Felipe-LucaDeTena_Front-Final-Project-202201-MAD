@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from 'react';
 import Canvas from '../../components/main/create/canvas';
 import NavBar from '../../components/nav-bar/nav-bar';

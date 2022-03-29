@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-param-reassign */
+/* istanbul ignore file */
 import React, {
     createRef,
     useState,

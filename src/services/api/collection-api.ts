@@ -17,11 +17,11 @@ export const addCollection = (
     });
 export const updateCollection = (
     collection: CollectionI,
-    userState: any
+    token: any
 ): Promise<Response> =>
     // eslint-disable-next-line no-underscore-dangle
     axios.patch(COLLECTIONURL + collection._id, collection, {
-        headers: { authorization: `Bearer ${userState.token}` },
+        headers: { authorization: `Bearer ${token}` },
     });
 export const deleteCollection = (
     collection: CollectionI,

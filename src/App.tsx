@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React, { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Create from './pages/createPage/createPage';

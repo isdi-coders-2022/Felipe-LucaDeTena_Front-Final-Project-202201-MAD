@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+/* istanbul ignore file */
 import { AnyAction } from '@reduxjs/toolkit';
 import actionTypes from './action-types';
 import { UserI } from '../../interfaces/user-i';

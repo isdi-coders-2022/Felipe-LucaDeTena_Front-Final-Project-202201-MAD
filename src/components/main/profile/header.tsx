@@ -7,7 +7,7 @@ import NavBar from '../../nav-bar/nav-bar';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './header.scss';
-import { loadUser } from '../../../redux/user/action-creators-';
+import { loadUser } from '../../../redux/user/action-creators';
 
 function Header({ setButtonPopUp }: any) {
     const dispatch = useAppDispatch();

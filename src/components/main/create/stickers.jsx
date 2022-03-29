@@ -3,6 +3,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/prefer-default-export */
+/* istanbul ignore file */
 import useImage from 'use-image';
 import React, { useState, useEffect, useRef } from 'react';
 import { Image as KonvaImage, Group } from 'react-konva';

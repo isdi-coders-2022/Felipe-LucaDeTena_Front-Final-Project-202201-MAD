@@ -1,10 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
-import { UserI } from '../../interfaces/user-i';
 
-const userUrl: string = process.env.URLUSER as string;
+// const userUrl: string = process.env.URLUSER as string;
 
-export const addUser = (user: UserI): Promise<AxiosResponse> =>
-    axios.post(userUrl, user);
+// export const addUser = (user: UserI): Promise<AxiosResponse> =>
+//     axios.post(userUrl, user);
 
 export const getUser = (userState: any): Promise<AxiosResponse> =>
     axios.get(`http://localhost:3600/users/${userState.id}`, {
@@ -25,10 +24,10 @@ export const updateUser = (
     return response;
 };
 
-export const deleteUser = (user: UserI, token: any): Promise<AxiosResponse> =>
-    axios.delete(userUrl + user.id, {
-        headers: { authorization: `Bearer ${token}` },
-    });
+// export const deleteUser = (user: UserI, token: any): Promise<AxiosResponse> =>
+//     axios.delete(userUrl + user.id, {
+//         headers: { authorization: `Bearer ${token}` },
+//     });
 
 export const follow = (user: any, id: string): Promise<AxiosResponse> =>
     axios.patch(`http://localhost:3600/users/following/${id}`, user, {

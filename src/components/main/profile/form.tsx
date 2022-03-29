@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { storage } from '../../../firebase/connection';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
-import { updateUser } from '../../../redux/user/action-creators-';
+import { updateUser } from '../../../redux/user/action-creators';
 import './form.scss';
 
 function Form({ setButtonPopUp }: any) {

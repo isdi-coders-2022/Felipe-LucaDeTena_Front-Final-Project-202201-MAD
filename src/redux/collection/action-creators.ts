@@ -33,17 +33,7 @@ export function addCollection(collection: any, token: string) {
     };
 }
 
-// export const deleteCollection = (
-//     collection: CollectionI,
-//     userState: any
-// ): Promise<Response> =>
-//     // eslint-disable-next-line no-underscore-dangle
-//     axios.delete(COLLECTIONURL + collection, {
-//         headers: { authorization: `Bearer ${userState.token}` },
-//     });
-
 export function removeCollection(id: any, userState: any) {
-    console.log(userState);
     return (dispatch: AppDispatch) => {
         api.deleteCollection(id, userState.token).then((resp: any) => {
             dispatch({
@@ -53,9 +43,9 @@ export function removeCollection(id: any, userState: any) {
         });
     };
 }
-export function toggleCollection(parcialCollection: any, token: any) {
+export function toggleCollection(Collection: any, userState: any) {
     return (dispatch: AppDispatch) => {
-        api.updateCollection(parcialCollection, token).then((resp: any) => {
+        api.updateCollection(Collection, userState.token).then((resp: any) => {
             dispatch({
                 type: actionTypes.updateCollections,
                 payload: resp.data,
