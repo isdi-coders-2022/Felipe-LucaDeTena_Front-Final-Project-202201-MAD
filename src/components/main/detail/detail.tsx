@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,28 +7,43 @@ import { useParams } from 'react-router-dom';
 import './detail.scss';
 import { getCollection } from '../../../services/api/collection-api';
 import { ItemI } from '../../../interfaces/item-i';
+import { RootState } from '../../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
+import { followUser, unFollowUser } from '../../../redux/user/action-creators-';
+import { toggleCollection } from '../../../redux/collection/action-creators';
 
 function Detail() {
+    const userState = useAppSelector((state: RootState) => state.loginRegister);
     const [collection, setCollection] = useState({
         _id: '',
         img: '',
         name: '',
         createdBy: { name: '', _id: '' },
-        totalPrice: '',
+        totalPrice: 0,
         items: [],
         favourite: false,
         likes: 0,
     });
-
+    const dispatch = useAppDispatch();
     const { id } = useParams();
-    console.log(useParams());
 
     useEffect(() => {
         getCollection(id).then((resp: any) => {
-            console.log(resp.data);
             setCollection(resp.data);
         });
     }, []);
+
+    const handleClickFollow = async () => {
+        dispatch(followUser(userState, collection.createdBy._id));
+    };
+    const handleClickUnfollow = async () => {
+        dispatch(unFollowUser(userState, collection.createdBy._id));
+    };
+    const handleClickFavourite = async () => {
+        dispatch(
+            toggleCollection({ favourite: !collection.favourite }, userState)
+        );
+    };
 
     return (
         <div className="detail__container">
@@ -47,9 +63,28 @@ function Detail() {
                     <p className="collection__text__p">
                         {collection.createdBy.name}
                     </p>
-                    <button className="collection__text__button" type="button">
-                        Follow
-                    </button>
+
+                    {userState.following.find(
+                        (follower: any) =>
+                            follower._id !== collection.createdBy._id
+                    ) ? (
+                        <button
+                            className="collection__text__button"
+                            onClick={handleClickUnfollow}
+                            type="button"
+                        >
+                            Unfollow
+                        </button>
+                    ) : (
+                        <button
+                            className="collection__text__button"
+                            onClick={handleClickFollow}
+                            type="button"
+                        >
+                            Follow
+                        </button>
+                    )}
+
                     <p className="collection__text__p">
                         Total price:
                         {collection.items.reduce(
@@ -60,6 +95,7 @@ function Detail() {
                         $
                     </p>
                     <FontAwesomeIcon
+                        onClick={handleClickFavourite}
                         className="collection__text__icon"
                         icon={faHeart}
                     />

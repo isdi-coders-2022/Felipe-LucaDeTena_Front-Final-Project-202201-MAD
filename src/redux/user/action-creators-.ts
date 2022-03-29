@@ -22,9 +22,9 @@ export function updateUser(parcialUser: any, token: any) {
         });
     };
 }
-export function followUser(user: any, token: any) {
+export function followUser(user: any, id: string) {
     return (dispatch: AppDispatch) => {
-        api.follow(user, token).then((resp: any) => {
+        api.follow(user, id).then((resp: any) => {
             dispatch({
                 type: actionTypes.follow,
                 payload: resp.data,
@@ -32,9 +32,9 @@ export function followUser(user: any, token: any) {
         });
     };
 }
-export function unFollowUser(user: any, token: any) {
+export function unFollowUser(user: any, id: string) {
     return (dispatch: AppDispatch) => {
-        api.unFollow(user, token).then((resp: any) => {
+        api.unFollow(user, id).then((resp: any) => {
             dispatch({
                 type: actionTypes.unFollow,
                 payload: resp.data,

@@ -1,7 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable default-param-last */
 /* eslint-disable no-param-reassign */
 import { AnyAction } from '@reduxjs/toolkit';
 import actionTypes from './action-types';
+import actionTypesCollections from '../collection/action-types';
+import actionTypesUser from '../user/action-types';
 
 interface UserRegisterI {
     id: String;
@@ -43,6 +46,26 @@ function loginReducer(state: UserRegisterI = initialState, action: AnyAction) {
         case actionTypes.signUp:
             state = action.payload;
             return state;
+        case actionTypesCollections.deleteCollections:
+            return {
+                ...state,
+                collections: state.collections.filter(
+                    (e: any) => e._id !== action.payload._id
+                ),
+            };
+        case actionTypesUser.unFollow:
+            return {
+                ...state,
+                followers: state.followers.filter(
+                    (e: any) => e._id !== action.payload._id
+                ),
+            };
+        case actionTypesUser.follow:
+            return {
+                ...state,
+                followers: [...state.followers, action.payload],
+            };
+
         default:
             return state;
     }

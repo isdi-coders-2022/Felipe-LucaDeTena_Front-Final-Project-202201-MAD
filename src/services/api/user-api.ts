@@ -22,7 +22,6 @@ export const updateUser = (
             headers: { authorization: `Bearer ${userState.token}` },
         }
     );
-    console.log(response);
     return response;
 };
 
@@ -31,12 +30,12 @@ export const deleteUser = (user: UserI, token: any): Promise<AxiosResponse> =>
         headers: { authorization: `Bearer ${token}` },
     });
 
-export const follow = (user: UserI, token: any): Promise<AxiosResponse> =>
-    axios.patch(`${userUrl}following/${user.id}`, user, {
-        headers: { authorization: `Bearer ${token}` },
+export const follow = (user: any, id: string): Promise<AxiosResponse> =>
+    axios.patch(`http://localhost:3600/users/following/${id}`, user, {
+        headers: { authorization: `Bearer ${user.token}` },
     });
 
-export const unFollow = (user: UserI, token: any): Promise<AxiosResponse> =>
-    axios.patch(`${userUrl}remove/${user.id}`, user, {
-        headers: { authorization: `Bearer ${token}` },
+export const unFollow = (user: any, id: string): Promise<AxiosResponse> =>
+    axios.patch(`http://localhost:3600/users/remove/${id}`, user, {
+        headers: { authorization: `Bearer ${user.token}` },
     });

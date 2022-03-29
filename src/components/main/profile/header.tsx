@@ -8,16 +8,13 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './header.scss';
 import { loadUser } from '../../../redux/user/action-creators-';
-import { getUser } from '../../../services/api/user-api';
 
 function Header({ setButtonPopUp }: any) {
     const dispatch = useAppDispatch();
     const userState = useAppSelector((state: RootState) => state.loginRegister);
 
     useEffect(() => {
-        getUser(userState).then(() => {
-            dispatch(loadUser(userState));
-        });
+        dispatch(loadUser(userState));
     }, []);
 
     return (

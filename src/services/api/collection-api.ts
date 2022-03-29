@@ -17,17 +17,17 @@ export const addCollection = (
     });
 export const updateCollection = (
     collection: CollectionI,
-    token: string
-): Promise<Response> =>
-    // eslint-disable-next-line no-underscore-dangle
-    axios.patch(COLLECTIONURL + collection._id, collection, {
-        headers: { authorization: `Bearer ${token}` },
-    });
-export const deleteCollection = (
-    collection: CollectionI,
     userState: any
 ): Promise<Response> =>
     // eslint-disable-next-line no-underscore-dangle
-    axios.delete(COLLECTIONURL + collection._id, {
+    axios.patch(COLLECTIONURL + collection._id, collection, {
         headers: { authorization: `Bearer ${userState.token}` },
+    });
+export const deleteCollection = (
+    collection: CollectionI,
+    token: string
+): Promise<Response> =>
+    // eslint-disable-next-line no-underscore-dangle
+    axios.delete(COLLECTIONURL + collection, {
+        headers: { authorization: `Bearer ${token}` },
     });

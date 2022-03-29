@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './header.scss';
 import { loadUser } from '../../../redux/user/action-creators-';
-import { getUser } from '../../../services/api/user-api';
+// import { getUser } from '../../../services/api/user-api';
 import './main.scss';
-import { deleteCollection } from '../../../services/api/collection-api';
+// import { deleteCollection } from '../../../services/api/collection-api';
 import { removeCollection } from '../../../redux/collection/action-creators';
 
 function Main() {
@@ -16,16 +16,15 @@ function Main() {
     const userState = useAppSelector((state: RootState) => state.loginRegister);
 
     useEffect(() => {
-        getUser(userState).then(() => {
-            dispatch(loadUser(userState));
-            console.log(userState);
-        });
+        dispatch(loadUser(userState));
+        console.log('el user esta logeado');
     }, []);
 
-    const handleClick = async (collection: any) => {
-        deleteCollection(collection, userState).then(() => {
-            dispatch(removeCollection(collection, userState));
-        });
+    const handleClick = async (e: any) => {
+        console.log('soy handle click');
+        const collectionId = e.target.dataset.collectionid;
+
+        dispatch(removeCollection(collectionId, userState));
     };
 
     return (
@@ -37,28 +36,26 @@ function Main() {
                 </button>
                 <div className="main__collection__container">
                     {userState.collections.map((collection: any) => (
-                        <Link
-                            className="main__link"
-                            to={`/details/${collection._id}`}
-                        >
-                            <div className="main__collection">
+                        <div className="main__collection">
+                            <Link
+                                className="main__link"
+                                to={`/details/${collection._id}`}
+                            >
                                 <img
                                     className="main__collection__img"
                                     src={collection.img}
                                     alt="none"
                                 />
-                                <div className="overlay__d">
-                                    <p className="overlay__delete">Delete</p>
-                                    <button
-                                        onClick={handleClick}
-                                        type="button"
-                                        className="overlay__delete__b"
-                                    >
-                                        x
-                                    </button>
-                                </div>
-                            </div>
-                        </Link>
+                            </Link>
+                            <button
+                                onClick={handleClick}
+                                type="button"
+                                className="overlay__delete__b"
+                                data-collectionid={collection._id}
+                            >
+                                x
+                            </button>
+                        </div>
                     ))}
                 </div>
             </div>
