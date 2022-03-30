@@ -7,7 +7,7 @@ import {
 import actionTypes from './action-types';
 
 jest.mock('../../services/api/user-api', () => ({
-    loadUser: () =>
+    getUser: () =>
         Promise.resolve({
             data: {
                 _id: '17862871',
@@ -20,13 +20,13 @@ jest.mock('../../services/api/user-api', () => ({
                 test: 'test',
             },
         }),
-    unFollowUser: () =>
+    unFollow: () =>
         Promise.resolve({
             data: {
                 test: 'test',
             },
         }),
-    followUser: () =>
+    follow: () =>
         Promise.resolve({
             data: {
                 test: 'test',
@@ -58,6 +58,7 @@ describe('Given load creators ', () => {
             expect(dispatchMock).toHaveBeenCalledWith({
                 type: actionTypes.loadUser,
                 payload: {
+                    _id: '17862871',
                     test: 'test',
                 },
             });

@@ -30,10 +30,12 @@ function Main() {
     return (
         <div className="main__outer">
             <div className="main__container">
-                <button className="main__button" type="button">
-                    <span className="main__add">+</span>
-                    Add a new wishlist
-                </button>
+                <Link to="/create">
+                    <button className="main__button" type="button">
+                        <span className="main__add">+</span>
+                        Add a new wishlist
+                    </button>
+                </Link>
                 <div className="main__collection__container">
                     {userState.collections.map((collection: any) => (
                         <div className="main__collection">

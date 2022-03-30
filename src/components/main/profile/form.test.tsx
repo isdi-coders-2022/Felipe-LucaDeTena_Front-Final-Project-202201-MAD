@@ -1,6 +1,6 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { render, fireEvent, screen } from '../../../redux/test.utils';
+import { render, screen } from '../../../redux/test.utils';
 import Popup from '../../popUp/popUp';
 import Form from './form';
 

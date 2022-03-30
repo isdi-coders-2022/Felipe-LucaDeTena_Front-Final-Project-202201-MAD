@@ -9,9 +9,10 @@ import { RootState } from '../../../redux/store';
 import './header.scss';
 import { loadUser } from '../../../redux/user/action-creators';
 
-function Header({ setButtonPopUp }: any) {
+function Header({ setButtonPopUp, setfollowingPopUp, setfollowerPopUp }: any) {
     const dispatch = useAppDispatch();
     const userState = useAppSelector((state: RootState) => state.loginRegister);
+    const imageState = useAppSelector((state: RootState) => state.user);
 
     useEffect(() => {
         dispatch(loadUser(userState));
@@ -23,7 +24,7 @@ function Header({ setButtonPopUp }: any) {
             <div className="header__profile">
                 <img
                     className="header__profile__banner"
-                    src={userState.backImg}
+                    src={imageState.backImg}
                     alt="none"
                 />
                 <div className="data__container">
@@ -31,7 +32,7 @@ function Header({ setButtonPopUp }: any) {
                         <div className="circle">
                             <img
                                 className="header__profile__img"
-                                src={userState.profileImg}
+                                src={imageState.profileImg}
                                 alt="./profileholder"
                             />
                         </div>
@@ -57,13 +58,25 @@ function Header({ setButtonPopUp }: any) {
                                 <p className="follower__number">
                                     {userState.followers.length}
                                 </p>
-                                <p className="follower__text">followers</p>
+                                <button
+                                    onClick={() => setfollowerPopUp(true)}
+                                    type="button"
+                                    className="follower__text__b"
+                                >
+                                    followers
+                                </button>
                             </div>
                             <div className="follower__data">
                                 <p className="follower__number">
                                     {userState.following.length}
                                 </p>
-                                <p className="follower__text">following</p>
+                                <button
+                                    onClick={() => setfollowingPopUp(true)}
+                                    type="button"
+                                    className="follower__text__b"
+                                >
+                                    following
+                                </button>
                             </div>
                         </div>
                     </div>

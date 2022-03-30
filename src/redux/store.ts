@@ -1,15 +1,16 @@
+/* istanbul ignore file */
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import collectionsReducer from './collection/collection-reducer';
 import itemsReducer from './item/item-reducer';
 import loginRegisterReducer from './login-register/login-register-reducer';
-
-// const preloadedState = {};
+import userReducer from './user/user-reducer';
 
 export const store = configureStore({
     reducer: {
         loginRegister: loginRegisterReducer,
         collections: collectionsReducer,
         items: itemsReducer,
+        user: userReducer,
     },
     // preloadedState,
 });

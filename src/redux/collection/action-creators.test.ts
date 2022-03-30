@@ -8,7 +8,7 @@ jest.mock('../../services/api/collection-api.ts', () => ({
                 test: 'test',
             },
         }),
-    toggleCollection: () =>
+    updateCollection: () =>
         Promise.resolve({
             data: {
                 test: 'test',
@@ -19,7 +19,7 @@ jest.mock('../../services/api/collection-api.ts', () => ({
 const token: string = '3782983271fff';
 
 describe('Given actions creators ', () => {
-    describe('When loadProducts is called', () => {
+    describe('When loadCollections is called', () => {
         test('Dispatch is called with successful action', async () => {
             const dispatchMock = jest.fn();
 

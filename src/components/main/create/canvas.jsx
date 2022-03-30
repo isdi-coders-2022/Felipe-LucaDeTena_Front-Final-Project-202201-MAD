@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-param-reassign */
 /* istanbul ignore file */
@@ -16,7 +17,7 @@ import { useAppSelector } from '../../../redux/hooks';
 import { getItems } from '../../../services/api/item-api';
 import loadItems from '../../../redux/item/action-creators';
 
-function Canvas() {
+function Canvas({ togglePopup }) {
     const dispatch = useDispatch();
     const itemState = useAppSelector((state) => state.items);
 
@@ -68,8 +69,12 @@ function Canvas() {
         <div className="canvas">
             <div className="stage__container">
                 <h1 className="stage__title">Drag image to canvas</h1>
+
+                <button type="button" onClick={() => togglePopup()}>
+                    Create collection
+                </button>
                 <button type="button" onClick={handleExport}>
-                    Export
+                    Export image
                 </button>
                 <Stage
                     width={600}

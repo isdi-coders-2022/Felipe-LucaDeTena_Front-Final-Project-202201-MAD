@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import loginRegisterReducer from './login-register/login-register-reducer';
 import collectionsReducer from './collection/collection-reducer';
 import itemsReducer from './item/item-reducer';
+import userReducer from './user/user-reducer';
 // Import your own reducer
 
 function render(
@@ -18,6 +19,7 @@ function render(
                 loginRegister: loginRegisterReducer,
                 collections: collectionsReducer,
                 items: itemsReducer,
+                user: userReducer,
             },
             preloadedState,
         }),

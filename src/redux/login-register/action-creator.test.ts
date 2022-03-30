@@ -2,13 +2,13 @@ import { logIn, logOut, signUp } from './action-creators';
 import actionTypes from './action-types';
 
 jest.mock('../../services/login-register-api.ts', () => ({
-    logIn: () =>
+    login: () =>
         Promise.resolve({
             data: {
                 test: 'test',
             },
         }),
-    signUp: () =>
+    register: () =>
         Promise.resolve({
             data: {
                 test: 'test',

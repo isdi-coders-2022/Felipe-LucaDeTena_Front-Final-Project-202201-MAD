@@ -1,6 +1,6 @@
 import actionTypes from './action-types';
 import loginReducer from './login-register-reducer';
-import { default as actiontypesCollection } from '../collection/action-types';
+import actiontypesCollection from '../collection/action-types';
 
 const initialState = {
     id: '',

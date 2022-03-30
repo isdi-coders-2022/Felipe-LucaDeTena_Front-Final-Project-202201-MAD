@@ -79,10 +79,5 @@
     },
     "presets": [
         "@babel/preset-react"
-    ],
-    "jest": {
-        "collectCoverageFrom": [
-            "src/**/{!(components/main/create/canvas)}.jsx"
-        ]
-    }
+    ]
 }
