@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { ItemI } from '../../interfaces/item-i';
 
-const itemUrl: string = process.env.URLUSER as string;
+const ITEMURL = 'http://localhost:3600/items';
 
 export const getItem = (id: string): Promise<Response> =>
-    axios.get(itemUrl + id);
-export const getItems = (): Promise<Response> => axios.get(itemUrl);
+    axios.get(ITEMURL + id);
+export const getItems = (): Promise<Response> => axios.get(ITEMURL);
 export const addItem = (item: ItemI): Promise<Response> =>
-    axios.post(itemUrl, item);
+    axios.post(ITEMURL, item);
 export const updateItem = (item: ItemI): Promise<Response> =>
-    axios.patch(itemUrl + item.id, item);
+    axios.patch(ITEMURL + item.id, item);
 export const deleteItem = (item: ItemI): Promise<Response> =>
-    axios.delete(itemUrl + item.id);
+    axios.delete(ITEMURL + item.id);
